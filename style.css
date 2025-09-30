@@ -1,0 +1,253 @@
+:root {
+  color-scheme: dark;
+  --bg: #0f172a;
+  --card: #1e293b;
+  --accent: #38bdf8;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --danger: #f87171;
+  --success: #4ade80;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at top, rgba(56, 189, 248, 0.15), transparent 45%), var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+#app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+  position: relative;
+}
+
+.top-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.player-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+#progressFill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #818cf8);
+  transition: width 0.4s ease;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+#challengeContainer {
+  display: none;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.card {
+  background: rgba(30, 41, 59, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 18px;
+  padding: 1.75rem;
+  box-shadow: 0 18px 32px rgba(15, 23, 42, 0.45);
+}
+
+h1, h2 {
+  margin-top: 0;
+  font-weight: 700;
+}
+
+.description {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.start-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+input[type="text"] {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 10px;
+  padding: 0.75rem 1.25rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button.primary {
+  background: linear-gradient(135deg, var(--accent), #818cf8);
+  color: #0f172a;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(56, 189, 248, 0.3);
+}
+
+.challenge {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.challenge.visible {
+  display: flex;
+}
+
+.challenge .controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.challenge .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.challenge textarea,
+.challenge input[type="text"] {
+  width: 100%;
+}
+
+.hint-button {
+  align-self: flex-start;
+  background: rgba(148, 163, 184, 0.2);
+  color: var(--text);
+}
+
+.hint-button.used {
+  background: rgba(248, 113, 113, 0.2);
+  color: #fecaca;
+}
+
+.feedback {
+  min-height: 1.5rem;
+  font-weight: 600;
+}
+
+.feedback.success {
+  color: var(--success);
+}
+
+.feedback.error {
+  color: var(--danger);
+}
+
+#resetButton {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: rgba(248, 113, 113, 0.18);
+  border: 1px solid rgba(248, 113, 113, 0.4);
+  color: #fecaca;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+}
+
+#resetButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(248, 113, 113, 0.35);
+}
+
+.challenge pre {
+  background: rgba(15, 23, 42, 0.75);
+  padding: 1rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-size: 0.95rem;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.challenge a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.challenge a:hover {
+  text-decoration: underline;
+}
+
+.hint {
+  background: rgba(56, 189, 248, 0.08);
+  border-left: 4px solid var(--accent);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+
+#confettiCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: none;
+}
+
+@media (max-width: 600px) {
+  #app {
+    padding: 1.5rem 1rem 5rem;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .player-info {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}

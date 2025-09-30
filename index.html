@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team 2 NJCCIC CTF Project</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="top-bar">
+      <div class="player-info">
+        <span id="playerNameDisplay">Player: --</span>
+        <span id="scoreDisplay">Score: 0</span>
+        <span id="progressDisplay">Progress: 0/10</span>
+      </div>
+      <div class="progress-bar">
+        <div id="progressFill"></div>
+      </div>
+    </header>
+
+    <main>
+      <section id="homeScreen" class="card">
+        <h1>Team 2 NJCCIC CTF Project</h1>
+        <p class="description">Beat 10 challenges. They ramp up in difficulty as you go. Read carefully and think step by step. Good luck!</p>
+        <div class="start-form">
+          <label for="playerName">Player Name</label>
+          <input type="text" id="playerName" maxlength="20" placeholder="Enter your name">
+          <button id="startButton" class="primary">Start</button>
+        </div>
+      </section>
+
+      <section id="challengeContainer"></section>
+    </main>
+  </div>
+
+  <button id="resetButton" class="reset">Reset Progress</button>
+
+  <!-- Hidden note for Challenge 1: source-start -->
+
+  <canvas id="confettiCanvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
